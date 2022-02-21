@@ -4,18 +4,26 @@
 <form action="#" method="POST">
   <input name="user" type="text">
   <input name="email" type="email">
-  <input value="submit" type="submit"/>
-</form>
+  <input value="add" type="submit" name="add_button"/>
+
+<br>
   <ol>
   {% for user in users %}
-    <ul id="user.username">
-      <li>Username: {{ user.username }}</li>
-      <li>Email: {{ user.email }}</li>
-      <li>Created: {{ user.created }}</li>
-      <li>Bio: {{ user.bio }}</li>
-      <li>Admin: {{ user.admin }}</li>
-    </ul>
+      <ul id="user.username">
+          <li>Username: {{ user.username }}</li>
+          <li>Email: {{ user.email }}</li>
+          <li>Created: {{ user.created }}</li>
+          <li>Bio: {{ user.bio }}</li>
+          <li>Admin: {{ user.admin }}</li>
+          <li>
+            <input name="h_user" value={{ user.username }} type="hidden">
+            <input name="update" value="update" type="submit" name="update_button"/>
+            <input name="delete" value="delete" type="button"/>
+          </li>
+      </ul>
     <br>
   {% endfor %}
   </ol>
+</form>
+
 {% endblock %}
