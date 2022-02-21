@@ -14,7 +14,7 @@ def user_records():
     #email = request.args.get("email")
     if request.method == "POST":
 
-        if request.form['delete'] is not None:
+        if request.form['action'] == "delete":
             h_user = request.form['h_user']
             User.query.filter_by(username=h_user).delete()
             db.session.commit()
